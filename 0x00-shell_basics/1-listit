@@ -1,4 +1,2 @@
 #!/bin/bash
-
-contents_list=$(ls)
-echo "The contents of the current directory:\n $contents_list"
+echo $(ls)

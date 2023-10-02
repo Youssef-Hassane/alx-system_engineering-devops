@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(sort | uniq -u)\n"
+echo "$(sort | uniq -u)"

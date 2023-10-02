@@ -1,2 +1,2 @@
 #!/bin/bash
-awk -F: '{$1 ":" $6}' /etc/passwd | sort
+awk '{$1 ":" $6}' /etc/passwd | sort

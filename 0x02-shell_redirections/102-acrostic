@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(sed -n 's/^\(.\).*/\1/p' <<< "Your acrostic goes here" | tr -d '\n')\n"
+cut -c 1 | paste -s -d ''

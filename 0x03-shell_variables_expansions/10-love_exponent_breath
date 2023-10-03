@@ -1,2 +1,2 @@
 #!/bin/bash
-printf=`expr $BREATH"**"$LOVE` 
+printf `expr $BREATH"**"$LOVE` 

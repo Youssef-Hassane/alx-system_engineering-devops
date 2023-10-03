@@ -1,2 +1,2 @@
 #!/bin/bash
-printf `expr $POWER / $DIVIDE`"\n"
+output=`expr $POWER / $DIVIDE` | printf "%d\n" $output

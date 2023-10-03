@@ -1,2 +1,2 @@
 #!/bin/bash
-printf `expr $BREATH ** $LOVE`"\n"
+echo $((BREATH**LOVE)) #expr doesn't support exponentiation directly

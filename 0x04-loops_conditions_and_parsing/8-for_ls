@@ -7,6 +7,9 @@ for file in ./*
 do
     if [[ $file == *-* ]]
 	then
-        echo "${file#*-}"
+		# ${parameter#pattern} is a form of parameter expansion that removes the shortest match of
+		# pattern from the beginning of the value stored in parameter. Here, parameter refers to
+		# the variable $file, and pattern is *-*.
+		echo "${file#*-}"
     fi
 done

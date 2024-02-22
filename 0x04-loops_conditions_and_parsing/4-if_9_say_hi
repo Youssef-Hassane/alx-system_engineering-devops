@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times with "Hi" after the 9th iteration
+
+count=1
+# -le = less than or equal to ( <= )
+while [ $count -le 10 ]
+do
+  # -eq is a comparison operator that checks if two operands are equal
+  if [ $count -eq 9 ]
+  then
+    echo "Best School"
+    echo "Hi"
+  else
+    echo "Best School"
+  # fi is a keyword in Bash scripting that marks the end of an if statement.
+  # In Bash, if statements are ended with fi (which is "if" spelled backward).
+  fi
+  ((count++))
+done

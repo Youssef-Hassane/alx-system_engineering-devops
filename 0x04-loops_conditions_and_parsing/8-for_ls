@@ -5,11 +5,19 @@
 # Where only the part of the name after the first dash is displayed (refer to the example)
 for file in *
 do
+    if [[ $file == -* ]]
+	then
+		# Skip files starting with '-'
+        continue 
+    fi
+
     if [[ $file == *-* ]]
 	then
 		# ${parameter#pattern} is a form of parameter expansion that removes the shortest match of
 		# pattern from the beginning of the value stored in parameter. Here, parameter refers to
 		# the variable $file, and pattern is *-*.
-		echo "${file#*-}"
+        echo "${file#*-}"
+    else
+        echo "$file"
     fi
 done

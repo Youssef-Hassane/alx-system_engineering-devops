@@ -7,4 +7,4 @@
 # uniq -c: This command filters out adjacent matching lines and counts the number of occurrences of each unique line. The -c option tells uniq to prefix each line with the count of occurrences.
 # sort -nr: This command sorts the output from uniq -c numerically (-n option) and in reverse order (-r option), so that the lines with the highest counts are listed first.
 
-awk '{print $1,$9}' access.log | sort | uniq -c | sort -nr
+awk '{print $1,$9}' access.log | sort | uniq -c | sort -rn

@@ -3,21 +3,20 @@
 	# Requirements:
 		# You cannot use ps
 
-# Get the PID of the script
-script_pid=$$
-
 # Iterate over all directories in /proc
-for pid_dir in /proc/*/; do
+for pid_dir in /proc/*/
+do
     # Extract the process ID from the directory path
     pid=$(basename "$pid_dir")
 
     # Check if the directory name is a number (i.e., it's a process ID)
-    if [[ $pid =~ ^[0-9]+$ ]]; then
+    if [[ $pid =~ ^[0-9]+$ ]]
+	then
         # Get the process name from the cmdline file
-        process_name=$(cat "$pid_dir/cmdline" 2>/dev/null | tr '\0' ' ' | grep -o '\<bash\>' || true)
-
+        process_name=$(tr '\0' ' ' < "$pid_dir/cmdline" 2>/dev/null | grep -o '\<bash\>' || true)
         # If process name contains "bash", print its PID along with the script's PID
-        if [[ -n $process_name ]]; then
+        if [[ -n $process_name ]]
+		then
             echo "$pid $process_name"
         fi
     fi

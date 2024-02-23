@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays the content of the file /etc/passwd.
+# Your script should only display:
+	# username
+	# user id
+	# Home directory path for the user
+# Requirements:
+	# You must use the while loop (for and until are forbidden)
+
+
+# The IFS=: sets the Internal Field Separator to : so that Bash splits each line into fields based on the colon delimiter.
+# Then, read -r username _ uid _ _ home _ reads the fields into variables. We're interested only in the username, user id (uid), and home directory (home)
+# underscores _ to ignore the other fields
+while IFS=: read -r username _ userid _ _ homedir _
+do
+    echo "$username:$userid:$homedir"
+# Redirects the input of the while loop to read from the /etc/passwd file
+done < /etc/passwd

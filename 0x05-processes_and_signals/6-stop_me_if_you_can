@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-# Get the PID of the process with the name '4-to_infinity_and_beyond'
-pid=$(pgrep -f '4-to_infinity_and_beyond')
-# Stop the process using SIGSTOP
-kill -s SIGSTOP "$pid"
+# Find the PID of the process
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+# Check if the process is running
+if [ -n "$pid" ]
+then
+    # Send a termination signal to the process
+    echo "Terminating process..."
+    echo "Terminated" > "/proc/$pid/fd/1"
+else
+    echo "Process 4-to_infinity_and_beyond is not running."
+fi

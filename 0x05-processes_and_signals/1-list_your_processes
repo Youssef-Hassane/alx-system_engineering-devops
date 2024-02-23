@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# display all processes, including those without a name
+ps auxf

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Parse Apache log file to display the visitor IP along with the HTTP status code.
+# $1: Represents the first field (column) of each line in the input file.
+# $9: Represents the ninth field (column) of each line in the input file.
+# apache-access.log: This is the input file for awk. It specifies the file from which awk should read data.
+# sort: This command sorts the output from awk alphabetically. By default, sort sorts in ascending order.
+# uniq -c: This command filters out adjacent matching lines and counts the number of occurrences of each unique line. The -c option tells uniq to prefix each line with the count of occurrences.
+# sort -nr: This command sorts the output from uniq -c numerically (-n option) and in reverse order (-r option), so that the lines with the highest counts are listed first.
+
+awk '{print $1,$9}' access.log | sort | uniq -c | sort -nr

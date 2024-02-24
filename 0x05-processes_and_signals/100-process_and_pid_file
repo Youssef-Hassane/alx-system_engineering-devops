@@ -1,25 +1,18 @@
 #!/usr/bin/env bash
-# Function to clean up and exit
-cleanup_exit() {
-    echo "Deleting PID file and exiting..."
-    rm -f "/var/run/myscript.pid"
-    exit 0
-}
+# Write a Bash script that:
+	# Creates the file /var/run/myscript.pid containing its PID
+	# Displays To infinity and beyond indefinitely
+	# Displays I hate the kill command when receiving a SIGTERM signal
+	# Displays Y U no love me?! when receiving a SIGINT signal
+	# Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
-# Trap signals and call cleanup_exit function
-trap 'cleanup_exit' SIGQUIT SIGTERM
-
-# Trap SIGINT and display message
-trap 'echo "Y U no love me?!"' SIGINT
-
-# Trap SIGTERM and display message
-trap 'echo "I hate the kill command"' SIGTERM
-
-# Write PID to file
-echo "$$" > /var/run/myscript.pid
-
-# Display message indefinitely
-while true; do
-    echo "To infinity and beyond"
-    sleep 1
+sudo touch /var/run/myscript.pid
+sudo bash -c 'echo $$ > /var/run/myscript.pid'
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I hate the kill command"; sudo rm /var/run/myscript.pid; exit' SIGTERM
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'sudo rm /var/run/myscript.pid; exit' SIGQUIT
 done

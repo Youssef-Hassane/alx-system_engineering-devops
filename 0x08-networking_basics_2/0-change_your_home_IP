@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Reconfigures the /etc/hosts file on an Ubuntu server to:
+#   - Associate 127.0.0.2 with localhost
+#   - Map facebook.com to the IP address 8.8.8.8
+# Create a backup of the current hosts file before modification
+cp /etc/hosts ~/hosts.new
+# Write the new localhost and facebook.com IP configurations
+echo "127.0.0.2		localhost" > ~/hosts.new
+echo "8.8.8.8		facebook.com" >> ~/hosts.new
+# Replace the current hosts file with the new configuration
+cp -f ~/hosts.new /etc/hosts

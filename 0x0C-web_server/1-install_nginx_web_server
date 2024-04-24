@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-# Bash script that configures a new Ubuntu machine to respect the requirements
-
-sudo su
+# installs nginx and configures it on a remote server
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 service nginx start
+
+# # Bash script which installs and confiugres nginx on remote server
+# apt-get update;
+# apt-get -y install nginx;
+# html_content="Hello World!"
+# echo "$html_content" > /var/www/html/hello.html;
+# service nginx start

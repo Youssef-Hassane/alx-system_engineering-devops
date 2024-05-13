@@ -1,0 +1,32 @@
+Understanding the intricacies of what happens behind the scenes when you type a URL into your browser and hit Enter is crucial for any software engineer navigating the web stack. This journey involves various components working in harmony to deliver the webpage seamlessly to your screen. In this article, we'll delve into the step-by-step process of what happens when you type "https://www.google.com" into your browser and press Enter.
+
+DNS Request:
+The journey begins with a Domain Name System (DNS) request. When you type "https://www.google.com" into your browser, your computer first checks its local DNS cache to find the corresponding IP address. If the IP is not found locally, a DNS query is sent to a DNS resolver, which then recursively searches through a hierarchy of DNS servers until it finds the IP address associated with "www.google.com".
+
+TCP/IP:
+Once the IP address is resolved, a Transmission Control Protocol (TCP) connection is established between your computer and the server hosting Google's website using the Internet Protocol (IP). TCP ensures reliable communication by breaking the data into packets and managing their transmission and reassembly at the destination.
+
+Firewall:
+Before the TCP connection is established, the data packets may pass through a firewall, which acts as a barrier between your computer and potentially malicious traffic. The firewall analyzes the packets to determine whether they meet the predefined security rules before allowing them to proceed further.
+
+HTTPS/SSL:
+In the case of "https://www.google.com", the connection is secured using Hypertext Transfer Protocol Secure (HTTPS) and Secure Sockets Layer (SSL) or Transport Layer Security (TLS). This encryption protocol ensures that the data exchanged between your browser and the server is encrypted, safeguarding it from eavesdropping and tampering by malicious actors.
+
+Load-Balancer:
+Upon reaching Google's infrastructure, the request may encounter a load balancer. Load balancers distribute incoming traffic across multiple servers to optimize resource utilization, improve reliability, and ensure high availability. This ensures that no single server becomes overwhelmed with requests, thus maintaining optimal performance.
+
+Web Server:
+After passing through the load balancer, the request reaches one of Google's web servers. The web server processes the request, retrieves the requested webpage and any associated resources (such as HTML, CSS, JavaScript files), and prepares them for delivery back to your browser.
+
+Application Server:
+In some cases, the web server may need to communicate with an application server to fulfill the request. Application servers execute the business logic of dynamic web applications, such as processing form submissions, querying databases, or generating personalized content.
+
+Database:
+If the requested webpage or resource requires data from a database, the application server interacts with the database server to retrieve the necessary information. The database server processes the query, retrieves the requested data, and sends it back to the application server for further processing.
+
+The journey of a web request from URL to page load involves numerous components working together seamlessly to deliver the requested content to your browser. Understanding this process not only enhances your knowledge of how the web stack functions but also provides valuable insights for troubleshooting and optimizing web performance. Next time you type a URL into your browser, remember the intricate journey it undertakes behind the scenes before appearing on your screen.
+
+
+
+
+

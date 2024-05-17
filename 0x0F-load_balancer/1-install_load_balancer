@@ -41,7 +41,7 @@ frontend youssefhassane-tech-frontend
 backend youssefhassane-tech-backend
     balance roundrobin
     server 530952-web-01 54.173.82.140:80 check
-    server 530952-web-02 100.26.153.250:80 check
+    server 530952-web-02 54.157.177.171:80 check
 "
 
 # shellcheck disable=SC2154

@@ -1,23 +1,17 @@
 #!/usr/bin/python3
-"""
-the number of subscribers (not active users, total subscribers)
-for a given subreddit
-"""
+"""Get the number of subscribers for a given subreddit."""
 import requests
 
 
 def number_of_subscribers(subreddit):
     """
-        GET /r/subreddit/aboutread
-            Return information about the subreddit.
-            Data includes the subscriber count, description, and header image.
+    function that queries the Reddit API and returns the number of subscribers
     """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": "Custom"}
-    response = requests.get(url, headers=headers)
+    reqest = requests.get(
+        "https://www.reddit.com/r/{}/about.json".format(subreddit),
+        headers={"User-Agent": "Custom"})
 
-    if response.status_code == 200:
-        data = response.json()
-        return data["data"]["subscribers"]
+    if reqest.status_code == 200:
+        return reqest.json().get("data").get("subscribers")
     else:
         return 0

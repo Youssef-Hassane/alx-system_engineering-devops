@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" the number of subscribers (not active users, total subscribers) for a given subreddit """
+"""
+the number of subscribers (not active users, total subscribers)
+for a given subreddit
+"""
 import requests
 
 
